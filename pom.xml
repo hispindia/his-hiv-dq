@@ -2,11 +2,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.openmrs.module</groupId>
-	<artifactId>kenyadq</artifactId>
-	<version>1.2-SNAPSHOT</version>
+	<artifactId>myanmardq</artifactId>
+	<version>1.0-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
-	<name>KenyaDQ</name>
+	<name>MyanmarDQ</name>
 	<description>Data quality management for KenyaEMR</description>
 
 	<developers>
@@ -45,9 +45,9 @@
 		<serializationxstreamVersion>0.2.7</serializationxstreamVersion>
 		<uiframeworkVersion>3.2.2</uiframeworkVersion>
 		
-		<kenyacoreVersion>2.3-SNAPSHOT</kenyacoreVersion>
-		<kenyaemrVersion>15.1-SNAPSHOT</kenyaemrVersion>
-		<kenyauiVersion>2.0.4-SNAPSHOT</kenyauiVersion>
+		<kenyacoreVersion>1.0-SNAPSHOT</kenyacoreVersion>
+		<kenyaemrVersion>1.0-SNAPSHOT</kenyaemrVersion>
+		<kenyauiVersion>1.0-SNAPSHOT</kenyauiVersion>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -80,22 +80,22 @@
 
 			<dependency>
 				<groupId>org.openmrs.module</groupId>
-				<artifactId>kenyacore-api</artifactId>
-				<version>${kenyacoreVersion}</version>
+				<artifactId>myanmarcore-api</artifactId>
+				<version>${myanmarVersion}</version>
 				<scope>provided</scope>
 			</dependency>
 
 			<dependency>
 				<groupId>org.openmrs.module</groupId>
-				<artifactId>kenyacore-test</artifactId>
-				<version>${kenyacoreVersion}</version>
+				<artifactId>myanmar-test</artifactId>
+				<version>${myanmarcoreVersion}</version>
 				<scope>test</scope>
 			</dependency>
 
 			<dependency>
 				<groupId>org.openmrs.module</groupId>
-				<artifactId>kenyaui-api</artifactId>
-				<version>${kenyauiVersion}</version>
+				<artifactId>myanmarui-api</artifactId>
+				<version>${myanmaruiVersion}</version>
 				<scope>provided</scope>
 			</dependency>
 
@@ -135,8 +135,8 @@
 			</dependency>
             <dependency>
                 <groupId>org.openmrs.module</groupId>
-                <artifactId>kenyaemr-api</artifactId>
-                <version>${kenyaemrVersion}</version>
+                <artifactId>myanmaremr-api</artifactId>
+                <version>${myanmaremrVersion}</version>
                 <scope>provided</scope>
             </dependency>
 

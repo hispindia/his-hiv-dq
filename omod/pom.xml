@@ -3,13 +3,13 @@
 
 	<parent>
 		<groupId>org.openmrs.module</groupId>
-		<artifactId>kenyadq</artifactId>
-		<version>1.2-SNAPSHOT</version>
+		<artifactId>myanmardq</artifactId>
+		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>kenyadq-omod</artifactId>
+	<artifactId>myanmardq-omod</artifactId>
 	<packaging>jar</packaging>
-	<name>KenyaDQ OMOD</name>
+	<name>MyanmarDQ OMOD</name>
 	<description>OMOD project for KenyaDQ</description>
 
 	<dependencies>
@@ -29,12 +29,12 @@
 
 		<dependency>
 			<groupId>org.openmrs.module</groupId>
-			<artifactId>kenyacore-api</artifactId>
+			<artifactId>myanmarcore-api</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>org.openmrs.module</groupId>
-			<artifactId>kenyaui-api</artifactId>
+			<artifactId>myanmarui-api</artifactId>
 		</dependency>
 
 		<dependency>

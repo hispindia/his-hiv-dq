@@ -3,13 +3,13 @@
 
 	<parent>
 		<groupId>org.openmrs.module</groupId>
-		<artifactId>kenyadq</artifactId>
-		<version>1.2-SNAPSHOT</version>
+		<artifactId>myanmardq</artifactId>
+		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>kenyadq-api</artifactId>
+	<artifactId>myanmardq-api</artifactId>
 	<packaging>jar</packaging>
-	<name>KenyaDQ API</name>
+	<name>MyanmarDQ API</name>
 	<description>API project for KenyaDQ</description>
 
 	<dependencies>
@@ -33,12 +33,12 @@
 
 		<dependency>
 			<groupId>org.openmrs.module</groupId>
-			<artifactId>kenyacore-api</artifactId>
+			<artifactId>myanmarcore-api</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>org.openmrs.module</groupId>
-			<artifactId>kenyacore-test</artifactId>
+			<artifactId>myanmarcore-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 
@@ -68,7 +68,7 @@
 		</dependency>
         <dependency>
             <groupId>org.openmrs.module</groupId>
-            <artifactId>kenyaemr-api</artifactId>
+            <artifactId>myanmaremr-api</artifactId>
         </dependency>
 
 		<!-- End OpenMRS modules -->
