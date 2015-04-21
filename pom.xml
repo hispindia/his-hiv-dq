@@ -45,9 +45,9 @@
 		<serializationxstreamVersion>0.2.7</serializationxstreamVersion>
 		<uiframeworkVersion>3.2.2</uiframeworkVersion>
 		
-		<kenyacoreVersion>1.0-SNAPSHOT</kenyacoreVersion>
-		<kenyaemrVersion>1.0-SNAPSHOT</kenyaemrVersion>
-		<kenyauiVersion>1.0-SNAPSHOT</kenyauiVersion>
+		<myanmarcoreVersion>1.0-SNAPSHOT</myanmarcoreVersion>
+		<myanmaremrVersion>1.0-SNAPSHOT</myanmaremrVersion>
+		<myanmaruiVersion>1.0-SNAPSHOT</myanmaruiVersion>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -81,13 +81,13 @@
 			<dependency>
 				<groupId>org.openmrs.module</groupId>
 				<artifactId>myanmarcore-api</artifactId>
-				<version>${myanmarVersion}</version>
+				<version>${myanmarcoreVersion}</version>
 				<scope>provided</scope>
 			</dependency>
 
 			<dependency>
 				<groupId>org.openmrs.module</groupId>
-				<artifactId>myanmar-test</artifactId>
+				<artifactId>myanmarcore-test</artifactId>
 				<version>${myanmarcoreVersion}</version>
 				<scope>test</scope>
 			</dependency>
