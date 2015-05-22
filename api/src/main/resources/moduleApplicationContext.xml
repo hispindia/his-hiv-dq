@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- ===================== Configurations ===================== -->
+
+	<bean id="kenyadq.config.report" class="org.openmrs.module.kenyacore.report.ReportConfiguration">
+		<property name="commonReports">
+			<set>
+				<ref bean="kenyadq.common.report.missingMaritalStatus" />
+			</set>
+		</property>
+		<property name="programReports">
+			<map>
+				<entry key-ref="kenyaemr.hiv.program">
+					<set>
+						<ref bean="kenyadq.hiv.report.missingEntryPoint" />
+						<ref bean="kenyadq.hiv.report.missingConfirmedPositiveDate" />
+					</set>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<!-- ===================== Apps ===================== -->
+
+	<bean id="kenyadq.app.dataqual" factory-bean="kenyacore.appFactoryBean" factory-method="createInstance">
+		<constructor-arg value="kenyadq.dataQuality" />
+		<constructor-arg value="Data Quality" />
+		<constructor-arg value="kenyadq/dataqual/dataQualityHome.page" />
+		<constructor-arg value="kenyadq:apps/dataqual.png" />
+		<constructor-arg value="525" />
+	</bean>
+
+	<bean id="kenyadq.app.datamgr" factory-bean="kenyacore.appFactoryBean" factory-method="createInstance">
+		<constructor-arg value="kenyadq.dataManager" />
+		<constructor-arg value="Data Manager" />
+		<constructor-arg value="kenyadq/datamgr/dataManagerHome.page" />
+		<constructor-arg value="kenyadq:apps/datamgr.png" />
+		<constructor-arg value="550" />
+	</bean>
+
+	<!-- ===================== Common reports ===================== -->
+
+	<bean id="kenyadq.common.report.missingMaritalStatus" class="org.openmrs.module.kenyacore.report.CalculationReportDescriptor">
+		<property name="targetUuid" value="df9c0a99-7b85-4353-b8c4-864eaa80b974" />
+		<property name="name" value="Missing marital status" />
+		<property name="calculation" value="org.openmrs.module.kenyadq.calculation.common.MissingMaritalStatusCalculation" />
+		<property name="apps"><set><ref bean="kenyadq.app.dataqual" /></set></property>
+	</bean>
+
+	<!-- ===================== HIV reports ===================== -->
+
+	<bean id="kenyadq.hiv.report.missingEntryPoint" class="org.openmrs.module.kenyacore.report.CalculationReportDescriptor">
+		<property name="targetUuid" value="219b12af-bcde-48a8-a77c-58fd41d80c81" />
+		<property name="name" value="Missing entry point" />
+		<property name="calculation" value="org.openmrs.module.kenyadq.calculation.hiv.MissingEntryPointCalculation" />
+		<property name="apps"><set><ref bean="kenyadq.app.dataqual" /></set></property>
+	</bean>
+
+	<bean id="kenyadq.hiv.report.missingConfirmedPositiveDate" class="org.openmrs.module.kenyacore.report.CalculationReportDescriptor">
+		<property name="targetUuid" value="0f72a67e-ba2c-48da-bbc1-377ebb0b8442" />
+		<property name="name" value="Missing date confirmed HIV+" />
+		<property name="calculation" value="org.openmrs.module.kenyadq.calculation.hiv.MissingHivConfirmedDateCalculation" />
+		<property name="apps"><set><ref bean="kenyadq.app.dataqual" /></set></property>
+	</bean>
+
+	<!-- ===================== Module service ===================== -->
+
+	<bean id="kenyaDqService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<bean class="org.openmrs.module.kenyadq.api.impl.KenyaDqServiceImpl" />
+		</property>
+		<property name="preInterceptors">
+			<ref bean="serviceInterceptors" />
+		</property>
+		<property name="transactionAttributeSource">
+			<ref bean="transactionAttributeSource" />
+		</property>
+	</bean>
+
+	<!-- Register service with OpenMRS -->
+
+	<bean parent="serviceContext">
+		<property name="moduleService">
+			<list>
+				<value>org.openmrs.module.kenyadq.api.KenyaDqService</value>
+				<ref local="kenyaDqService"/>
+			</list>
+		</property>
+	</bean>
+
+</beans>
