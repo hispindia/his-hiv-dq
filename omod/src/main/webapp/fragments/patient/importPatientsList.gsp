@@ -1,13 +1,13 @@
 
 <div class="ke-page-content">
-	<form id="importPatientForm" name="importPatientForm" action="${ ui.actionLink("kenyadq", "patient/importPatientsList", "submit") }" method="post" enctype="multipart/form-data" >
+	<form id="importPatientForm" name="importPatientForm" >
 	  <table>
 	    <tr>
 	      <td class="NormalB">Upload/Import (XLS) File :</td>
 	      <td>&nbsp;</td>
 	
 	      <td class="NormalB">
-	        <input type="file" id="upload" name="upload" size="31" class="{validate:{required:true}}">
+	        <input type="file" id="upload" name="upload" size="31" class="{validate:{required:true}}" >
 	      </td>
 	    </tr>
 	
@@ -16,10 +16,25 @@
 	
 	    <tr>
 	      <td class="NormalB">
-	        <input type="submit" name="importReport" value='Import Data' style="width:150px">
+	        <input type="submit" name="importReport" value='Import Data' style="width:150px" onclick="savePatient();">
 	      </td>
 	    </tr>
 	  </table>
 	</form>
 </div>
+
+<script type="text/javascript">
+function savePatient(){
+var filename =  document.getElementById("upload").value;
+
+	alert(filename);
+		jQuery.ajax(ui.fragmentActionLink("kenyaemr" , "patient/importPatientsList",  "submit"),{ data: { fileName:filename }, dataType: 'json'
+		}).done(function(data) {
+			ui.navigate('${ returnUrl }');
+	 });
+		
+};
+
+
+</script>
 
