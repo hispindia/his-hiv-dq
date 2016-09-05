@@ -11,21 +11,21 @@
 
 	<developers>
 		<developer>
-			<name>I-TECH</name>
+			<name>HISP India</name>
 		</developer>
 	</developers>
 
 	<organization>
-		<name>I-TECH</name>
-		<url>http://www.go2itech.org</url>
+		<name>HISP India</name>
+		<url>http://www.hispindia.org</url>
 	</organization>
 
 	<scm>
-		<connection>scm:git:git@github.com:I-TECH/openmrs-module-kenyadq.git</connection>
-		<developerConnection>scm:git:git@github.com:I-TECH/openmrs-module-kenyadq.git</developerConnection>
-		<url>scm:git:git@github.com:I-TECH/openmrs-module-kenyadq.git</url>
-	  <tag>1.1</tag>
-  </scm>
+		<connection>scm:git:git@github.com:hispindia/his-hiv-dq.git</connection>
+		<developerConnection>scm:git:git@github.com:hispindia/his-hiv-dq.git</developerConnection>
+		<url>scm:git:git@github.com:hispindia/his-hiv-dq.git</url>
+		<tag>1.0</tag>
+	</scm>
 
 	<modules>
 		<module>api</module>
